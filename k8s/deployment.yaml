@@ -39,19 +39,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: web
+  name: rotten-potatoes
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: web
+      app: rotten-potatoes
   template:
     metadata:
       labels:
-        app: web
+        app: rotten-potatoes
     spec:
       containers:
-        - name: web
+        - name: rotten-potatoes
           image: rafaelscnunes/rotten-potatoes:v1
           ports:
             - containerPort: 5000
@@ -71,10 +71,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: web
+  name: rotten-potatoes
 spec:
   selector:
-    app: web
+    app: rotten-potatoes
   ports:
     - port: 8082
       targetPort: 5000
